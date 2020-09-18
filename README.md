@@ -1,5 +1,28 @@
 # Survey-on-3D-Point-Clouds
 
+## Content
+
+- [Datasets](#Datasets)
+- [Metrics](#Metrics)
+- [Papers](#Papers)
+  - [3D Object Classification](#3D Object Classification)
+    - [Projection-based classification](#Projection-based classification)
+    - [Point-based classification](#Point-based classification)
+  - [3D Segmentation](#3D Segmentation)
+    - [Semantic segmentation](#Semantic segmentation)
+    - [Instance segmentation](#Instance segmentation)
+    - [Joint training](#Joint training)
+  - [3D Object Detection](#3D Object Detection)
+    - [Projection-based detection](#Projection-based detection)
+    - [Point-based detection](#Point-based detection)
+    - [Multi-view fusion](#Multi-view fusion)
+  - [3D Object Tracking](#3D Object Tracking)
+  - [3D Scene Flow Estimation](#3D Scene Flow Estimation)
+  - [3D Point Registration and Matching](#3D Point Registration and Matching)
+  - [Point Cloud Augmentation and Completion](#Point Cloud Augmentation and Completion)
+    - [Discriminative methods](#Discriminative methods)
+    - [Generative methods](#Generative methods)
+
 ## Datasets
 
 - [ShapeNet](https://www.shapenet.org/)
@@ -13,11 +36,28 @@
 - [Lyft Level 5](https://self-driving.lyft.com/level5/data/)
 - [Waymo Open Dataset](https://waymo.com/open/)
 
+## Metrics
+
+| Name | Formula | Explanation |
+| ---- | ------- | ----------- |
+| Accuracy | ![](http://latex.codecogs.com/gif.latex?Accuracy=\frac{TP+TN}{TP+TN+FP+FN}) | Accuracy indicates how many predictions are correct over all predictions. ``Overall accuracy (OA)" indicates the accuracy on the entire dataset. |
+| mACC | ![](http://latex.codecogs.com/gif.latex?mACC=\frac{1}{C}\sum_{c=1}^C Accuracy_c) | The mean of accuracy on different categories, useful when the categories are imbalanced. |
+| Precision | ![](http://latex.codecogs.com/gif.latex?Precision=\frac{TP}{TP+FP}) | The ratio of correct predictions over all predictions. |
+| Recall | ![](http://latex.codecogs.com/gif.latex?Recall=\frac{TP}{TP+FN}) | The ratio of correct predictions over positive samples in the ground truth. |
+| F1 Score | ![](http://latex.codecogs.com/gif.latex?F_1=2\times \frac{Precision\cdot Recall}{Precision + Recall}) | The harmonic mean of precision and recall. |
+| IoU | ![](http://latex.codecogs.com/gif.latex?IoU_i=\frac{I_{i,i}}{\sum_{c=1}^C (I_{i,c}+I_{c,i}) - I_{i,i}}) | Intersection over Union (of class/instance $i$). The intersection and union are calculated between the prediction and the ground truth. |
+| mIoU | ![](http://latex.codecogs.com/gif.latex?mIoU = \frac{1}{C}\sum_{c=1}^{C}IoU_i) | The mean of IoU on all classes/instances. |
+| MOTA | ![](http://latex.codecogs.com/gif.latex?MOTA=1-\frac{FN+FP+IDS}{TP+FN}) | Multi-object tracking accuracy (MOTA) synthesizes 3 error sources: false positives, missed targets and identity switches, and the number of ground truth (as TP+FN) is used for normalization. |
+| MOTP | ![](http://latex.codecogs.com/gif.latex?MOTP=\frac{\sum_{i,t} e_{i,t}}{\sum_t d_t}) | Multi-object tracking precision (MOTP) indicates the precision of localization. ![](http://latex.codecogs.com/gif.latex?d_t) denotes the number of matches at time t, and ![](http://latex.codecogs.com/gif.latex?e_{i,t}) denotes the error of the i-th pair at time t. |
+| EPE | ![](http://latex.codecogs.com/gif.latex?EPE=\|\|\Hat{sf}-sf\|\|_2) | End point error (EPE) is used in scene flow estimation, also referred as EPE2D/EPE3D for 2D/3D data respectively. ![](http://latex.codecogs.com/gif.latex?\Hat{sf}) denotes the predicted scene flow vector while ![](http://latex.codecogs.com/gif.latex?sf) denotes the ground truth. |
+
+
+
 ## Papers
 
 ### 3D Object Classification
 
-#### Projection-based methods
+#### Projection-based classification
 
 - Su, Hang, et al. "Multi-view convolutional neural networks for 3d shape recognition." *Proceedings of the IEEE international conference on computer vision*. 2015. [[paper](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Su_Multi-View_Convolutional_Neural_ICCV_2015_paper.pdf)]
 
@@ -35,7 +75,7 @@
 
 - Prokudin, Sergey, Christoph Lassner, and Javier Romero. "Efficient learning on point clouds with basis point sets." *Proceedings of the IEEE International Conference on Computer Vision Workshops*. 2019. [[paper](https://openaccess.thecvf.com/content_ICCVW_2019/papers/CEFRL/Prokudin_Efficient_Learning_on_Point_Clouds_with_Basis_Point_Sets_ICCVW_2019_paper.pdf)]
 
-#### Point-based methods
+#### Point-based classification
 
 - Qi, Charles R., et al. "Pointnet: Deep learning on point sets for 3d classification and segmentation." *Proceedings of the IEEE conference on computer vision and pattern recognition*. 2017. [[paper](https://openaccess.thecvf.com/content_cvpr_2017/papers/Qi_PointNet_Deep_Learning_CVPR_2017_paper.pdf)]
 
@@ -71,7 +111,7 @@
 
 ### 3D Segmentation
 
-#### Semantic Segmentation
+#### Semantic segmentation
 
 - Huang, Jing, and Suya You. "Point cloud labeling using 3d convolutional neural network." *2016 23rd International Conference on Pattern Recognition (ICPR)*. IEEE, 2016. [[paper](https://www.researchgate.net/profile/Jing_Huang37/publication/308349377_Point_Cloud_Labeling_using_3D_Convolutional_Neural_Network/links/5d60108592851c619d71a3a7/Point-Cloud-Labeling-using-3D-Convolutional-Neural-Network.pdf)]
 - Dai, Angela, et al. "Scancomplete: Large-scale scene completion and semantic segmentation for 3d scans." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2018. [[paper](https://openaccess.thecvf.com/content_cvpr_2018/papers/Dai_ScanComplete_Large-Scale_Scene_CVPR_2018_paper.pdf)]
@@ -102,7 +142,7 @@
 - Xu, Xun, and Gim Hee Lee. "Weakly Supervised Semantic Point Cloud Segmentation: Towards 10x Fewer Labels." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Xu_Weakly_Supervised_Semantic_Point_Cloud_Segmentation_Towards_10x_Fewer_Labels_CVPR_2020_paper.pdf)]
 - Wei, Jiacheng, et al. "Multi-Path Region Mining For Weakly Supervised 3D Semantic Segmentation on Point Clouds." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Wei_Multi-Path_Region_Mining_for_Weakly_Supervised_3D_Semantic_Segmentation_on_CVPR_2020_paper.pdf)]
 
-#### Instance Segmentation
+#### Instance segmentation
 
 - Hou, Ji, Angela Dai, and Matthias Nießner. "3d-sis: 3d semantic instance segmentation of rgb-d scans." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Hou_3D-SIS_3D_Semantic_Instance_Segmentation_of_RGB-D_Scans_CVPR_2019_paper.pdf)]
 - Yi, Li, et al. "Gspn: Generative shape proposal network for 3d instance segmentation in point cloud." *Proceedings of the IEEE conference on computer vision and pattern recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Yi_GSPN_Generative_Shape_Proposal_Network_for_3D_Instance_Segmentation_in_CVPR_2019_paper.pdf)]
@@ -117,7 +157,7 @@
 - Lyu, Yecheng, Xinming Huang, and Ziming Zhang. "Learning to Segment 3D Point Clouds in 2D Image Space." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Lyu_Learning_to_Segment_3D_Point_Clouds_in_2D_Image_Space_CVPR_2020_paper.pdf)]
 - Jiang, Li, et al. "PointGroup: Dual-Set Point Grouping for 3D Instance Segmentation." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Jiang_PointGroup_Dual-Set_Point_Grouping_for_3D_Instance_Segmentation_CVPR_2020_paper.pdf)]
 
-#### Joint Training
+#### Joint training
 
 - Hassani, Kaveh, and Mike Haley. "Unsupervised multi-task feature learning on point clouds." *Proceedings of the IEEE International Conference on Computer Vision*. 2019. [[paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Hassani_Unsupervised_Multi-Task_Feature_Learning_on_Point_Clouds_ICCV_2019_paper.pdf)]
 - Pham, Quang-Hieu, et al. "JSIS3D: joint semantic-instance segmentation of 3d point clouds with multi-task pointwise networks and multi-value conditional random fields." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Pham_JSIS3D_Joint_Semantic-Instance_Segmentation_of_3D_Point_Clouds_With_Multi-Task_CVPR_2019_paper.pdf)]
@@ -125,15 +165,15 @@
 
 ### 3D Object Detection
 
-#### Projection-based methods
+#### Projection-based detection
 
 - Zhou, Yin, and Oncel Tuzel. "Voxelnet: End-to-end learning for point cloud based 3d object detection." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2018. [[paper](https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhou_VoxelNet_End-to-End_Learning_CVPR_2018_paper.pdf)]
 - Yan, Yan, Yuxing Mao, and Bo Li. "Second: Sparsely embedded convolutional detection." *Sensors* 18.10 (2018): 3337. [[paper](https://www.mdpi.com/1424-8220/18/10/3337/htm)]
 - Lang, Alex H., et al. "Pointpillars: Fast encoders for object detection from point clouds." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Lang_PointPillars_Fast_Encoders_for_Object_Detection_From_Point_Clouds_CVPR_2019_paper.pdf)]
-- Wang, Yue, et al. "Pillar-based Object Detection for Autonomous Driving." *arXiv preprint arXiv:2007.10323* (2020). [[paper](https://arxiv.org/pdf/2007.10323.pdf)]
+- Wang, Yue, et al. "Pillar-based Object Detection for Autonomous Driving." *Proceedings of the European Conference on Computer Vision (ECCV)*. (2020). [[paper](https://arxiv.org/pdf/2007.10323.pdf)]
 - He, Chenhang, et al. "Structure Aware Single-stage 3D Object Detection from Point Cloud." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Structure_Aware_Single-Stage_3D_Object_Detection_From_Point_Cloud_CVPR_2020_paper.pdf)]
 
-#### Point-based methods
+#### Point-based detection
 
 - Yang, Zetong, et al. "Std: Sparse-to-dense 3d object detector for point cloud." *Proceedings of the IEEE International Conference on Computer Vision*. 2019. [[paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Yang_STD_Sparse-to-Dense_3D_Object_Detector_for_Point_Cloud_ICCV_2019_paper.pdf)]
 - Shi, Shaoshuai, Xiaogang Wang, and Hongsheng Li. "Pointrcnn: 3d object proposal generation and detection from point cloud." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Shi_PointRCNN_3D_Object_Proposal_Generation_and_Detection_From_Point_Cloud_CVPR_2019_paper.pdf)]
@@ -145,7 +185,7 @@
 - Chen, Jintai, et al. "A Hierarchical Graph Network for 3D Object Detection on Point Clouds." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_A_Hierarchical_Graph_Network_for_3D_Object_Detection_on_Point_CVPR_2020_paper.pdf)]
 - Shi, Weijing, and Raj Rajkumar. "Point-gnn: Graph neural network for 3d object detection in a point cloud." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Shi_Point-GNN_Graph_Neural_Network_for_3D_Object_Detection_in_a_CVPR_2020_paper.pdf)]
 
-#### Multi-view Fusion
+#### Multi-view fusion
 
 - Chen, Xiaozhi, et al. "Multi-view 3d object detection network for autonomous driving." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2017. [[paper](https://openaccess.thecvf.com/content_cvpr_2017/papers/Chen_Multi-View_3D_Object_CVPR_2017_paper.pdf)]
 
@@ -180,7 +220,7 @@
 
 - Yew, Zi Jian, and Gim Hee Lee. "RPM-Net: Robust Point Matching using Learned Features." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Yew_RPM-Net_Robust_Point_Matching_Using_Learned_Features_CVPR_2020_paper.pdf)]
 
-### Augmentation and Completion
+### Point Cloud Augmentation and Completion
 
 #### Discriminative methods
 
@@ -199,12 +239,13 @@
 - Yu, Lequan, et al. "Pu-net: Point cloud upsampling network." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2018. [[paper](https://openaccess.thecvf.com/content_cvpr_2018/papers/Yu_PU-Net_Point_Cloud_CVPR_2018_paper.pdf)]
 
 - Yifan, Wang, et al. "Patch-based progressive 3d point set upsampling." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Yifan_Patch-Based_Progressive_3D_Point_Set_Upsampling_CVPR_2019_paper.pdf)]
-- Hui, Le, et al. "Progressive Point Cloud Deconvolution Generation Network." *arXiv preprint arXiv:2007.05361* (2020). [[paper](https://arxiv.org/pdf/2007.05361.pdf)]
+- Hui, Le, et al. "Progressive Point Cloud Deconvolution Generation Network." *Proceedings of the European Conference on Computer Vision (ECCV)*. (2020). [[paper](https://arxiv.org/pdf/2007.05361.pdf)]
 - Yuan, Wentao, et al. "Pcn: Point completion network." *2018 International Conference on 3D Vision (3DV)*. IEEE, 2018. [[paper](https://arxiv.org/pdf/1808.00671.pdf)]
 - Wang, Xiaogang, Marcelo H. Ang Jr, and Gim Hee Lee. "Cascaded Refinement Network for Point Cloud Completion." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Cascaded_Refinement_Network_for_Point_Cloud_Completion_CVPR_2020_paper.pdf)]
 - Huang, Zitian, et al. "PF-Net: Point Fractal Network for 3D Point Cloud Completion." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. [[paper](http://openaccess.thecvf.com/content_CVPR_2020/papers/Huang_PF-Net_Point_Fractal_Network_for_3D_Point_Cloud_Completion_CVPR_2020_paper.pdf)]
-- Xie, Haozhe, et al. "GRNet: Gridding Residual Network for Dense Point Cloud Completion." *arXiv preprint arXiv:2006.03761* (2020). [[paper](https://arxiv.org/pdf/2006.03761.pdf)]
+- Xie, Haozhe, et al. "GRNet: Gridding Residual Network for Dense Point Cloud Completion." *Proceedings of the European Conference on Computer Vision (ECCV)*. (2020). [[paper](https://arxiv.org/pdf/2006.03761.pdf)]
 - Lan, Ziquan, Zi Jian Yew, and Gim Hee Lee. "Robust Point Cloud Based Reconstruction of Large-Scale Outdoor Scenes." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Lan_Robust_Point_Cloud_Based_Reconstruction_of_Large-Scale_Outdoor_Scenes_CVPR_2019_paper.pdf)]
 - Li, Ruihui, et al. "Pu-gan: a point cloud upsampling adversarial network." *Proceedings of the IEEE International Conference on Computer Vision*. 2019. [[paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Li_PU-GAN_A_Point_Cloud_Upsampling_Adversarial_Network_ICCV_2019_paper.pdf)]
 - Sarmad, Muhammad, Hyunjoo Jenny Lee, and Young Min Kim. "Rl-gan-net: A reinforcement learning agent controlled gan network for real-time point cloud shape completion." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2019. [[paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Sarmad_RL-GAN-Net_A_Reinforcement_Learning_Agent_Controlled_GAN_Network_for_Real-Time_CVPR_2019_paper.pdf)]
+- Wu, Rundi, et al. "Multimodal Shape Completion via Conditional Generative Adversarial Networks." *Proceedings of the European Conference on Computer Vision (ECCV)*. (2020). [[paper](https://arxiv.org/pdf/2003.07717.pdf)]
 
