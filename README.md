@@ -1,7 +1,14 @@
-# Survey-on-3D-Point-Clouds
+# Deep Learning for 3D Point Cloud Understanding: A Survey
 
-## Survey
-Deep Learning for 3D Point Cloud Understanding: A Survey [ArXiv link](http://arxiv.org/)
+Survey paper link [[ArXiv](http://arxiv.org/)]
+```BibTex
+@article{lu2020deep,
+  title={Deep Learning for 3D Point Cloud Understanding: A Survey},
+  author={Lu, Haoming and Shi, Humphrey},
+  journal={arXiv preprint arXiv:2009.xxxxx},
+  year={2020}
+}
+```
 
 ## Datasets
 
@@ -16,7 +23,7 @@ Deep Learning for 3D Point Cloud Understanding: A Survey [ArXiv link](http://arx
 - [Lyft Level 5](https://self-driving.lyft.com/level5/data/)
 - [Waymo Open Dataset](https://waymo.com/open/)
 
-## Papers
+## Papers (up to ECCV 2020)
 
 ### 3D Object Classification
 
