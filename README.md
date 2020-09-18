@@ -1,6 +1,6 @@
 # Deep Learning for 3D Point Cloud Understanding: A Survey
 
-Survey paper link [[ArXiv](http://arxiv.org/)]
+Our survey paper[[ArXiv](http://arxiv.org/)]
 ```BibTex
 @article{lu2020deep,
   title={Deep Learning for 3D Point Cloud Understanding: A Survey},
