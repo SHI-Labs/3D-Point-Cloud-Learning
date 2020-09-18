@@ -1,10 +1,20 @@
-# Survey-on-3D-Point-Clouds
+# Deep Learning for 3D Point Cloud Understanding: A Survey
+
+Our survey paper[[ArXiv](http://arxiv.org/)]
+```BibTex
+@article{lu2020deep,
+  title={Deep Learning for 3D Point Cloud Understanding: A Survey},
+  author={Lu, Haoming and Shi, Humphrey},
+  journal={arXiv preprint arXiv:2009.xxxxx},
+  year={2020}
+}
+```
 
 ## Content
 
 - [Datasets](#Datasets)
 - [Metrics](#Metrics)
-- [Papers](#Papers)
+- [Papers](#Papers (up to ECCV 2020))
   - [3D Object Classification](#3D Object Classification)
     - [Projection-based classification](#Projection-based classification)
     - [Point-based classification](#Point-based classification)
@@ -51,10 +61,7 @@
 | MOTP | ![](http://latex.codecogs.com/gif.latex?MOTP=\frac{\sum_{i,t} e_{i,t}}{\sum_t d_t}) | Multi-object tracking precision (MOTP) indicates the precision of localization. ![](http://latex.codecogs.com/gif.latex?d_t) denotes the number of matches at time t, and ![](http://latex.codecogs.com/gif.latex?e_{i,t}) denotes the error of the i-th pair at time t. |
 | EPE | ![](http://latex.codecogs.com/gif.latex?EPE=\|\|\Hat{sf}-sf\|\|_2) | End point error (EPE) is used in scene flow estimation, also referred as EPE2D/EPE3D for 2D/3D data respectively. ![](http://latex.codecogs.com/gif.latex?\Hat{sf}) denotes the predicted scene flow vector while ![](http://latex.codecogs.com/gif.latex?sf) denotes the ground truth. |
 
-
-
-## Papers
-
+## Papers (up to ECCV 2020)
 ### 3D Object Classification
 
 #### Projection-based classification
