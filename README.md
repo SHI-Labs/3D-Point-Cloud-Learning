@@ -14,7 +14,7 @@ Our survey paper[[ArXiv](http://arxiv.org/)]
 
 - [Datasets](#Datasets)
 - [Metrics](#Metrics)
-- [Papers](#Papers-(up-to-ECCV-2020))
+- [Papers](#Papers-up-to-ECCV-2020)
   - [3D Object Classification](#3D-Object-Classification)
     - [Projection-based classification](#Projection-based-classification)
     - [Point-based classification](#Point-based-classification)
