@@ -14,24 +14,24 @@ Our survey paper[[ArXiv](http://arxiv.org/)]
 
 - [Datasets](#Datasets)
 - [Metrics](#Metrics)
-- [Papers](#Papers (up to ECCV 2020))
-  - [3D Object Classification](#3D Object Classification)
-    - [Projection-based classification](#Projection-based classification)
-    - [Point-based classification](#Point-based classification)
-  - [3D Segmentation](#3D Segmentation)
-    - [Semantic segmentation](#Semantic segmentation)
-    - [Instance segmentation](#Instance segmentation)
-    - [Joint training](#Joint training)
-  - [3D Object Detection](#3D Object Detection)
-    - [Projection-based detection](#Projection-based detection)
-    - [Point-based detection](#Point-based detection)
-    - [Multi-view fusion](#Multi-view fusion)
-  - [3D Object Tracking](#3D Object Tracking)
-  - [3D Scene Flow Estimation](#3D Scene Flow Estimation)
-  - [3D Point Registration and Matching](#3D Point Registration and Matching)
-  - [Point Cloud Augmentation and Completion](#Point Cloud Augmentation and Completion)
-    - [Discriminative methods](#Discriminative methods)
-    - [Generative methods](#Generative methods)
+- [Papers](#Papers-(up-to-ECCV-2020))
+  - [3D Object Classification](#3D-Object-Classification)
+    - [Projection-based classification](#Projection-based-classification)
+    - [Point-based classification](#Point-based-classification)
+  - [3D Segmentation](#3D-Segmentation)
+    - [Semantic segmentation](#Semantic-segmentation)
+    - [Instance segmentation](#Instance-segmentation)
+    - [Joint training](#Joint-training)
+  - [3D Object Detection](#3D-Object-Detection)
+    - [Projection-based detection](#Projection-based-detection)
+    - [Point-based detection](#Point-based-detection)
+    - [Multi-view fusion](#Multi-view-fusion)
+  - [3D Object Tracking](#3D-Object-Tracking)
+  - [3D Scene Flow Estimation](#3D-Scene-Flow-Estimation)
+  - [3D Point Registration and Matching](#3D-Point-Registration-and-Matching)
+  - [Point Cloud Augmentation and Completion](#Point-Cloud-Augmentation-and-Completion)
+    - [Discriminative methods](#Discriminative-methods)
+    - [Generative methods](#Generative-methods)
 
 ## Datasets
 
@@ -51,14 +51,14 @@ Our survey paper[[ArXiv](http://arxiv.org/)]
 | Name | Formula | Explanation |
 | ---- | ------- | ----------- |
 | Accuracy | ![](http://latex.codecogs.com/gif.latex?Accuracy=\frac{TP+TN}{TP+TN+FP+FN}) | Accuracy indicates how many predictions are correct over all predictions. ``Overall accuracy (OA)" indicates the accuracy on the entire dataset. |
-| mACC | ![](http://latex.codecogs.com/gif.latex?mACC=\frac{1}{C}\sum_{c=1}^C Accuracy_c) | The mean of accuracy on different categories, useful when the categories are imbalanced. |
+| mACC | ![](http://latex.codecogs.com/gif.latex?mACC=\frac{1}{C}\sum_{c=1}^{C}Accuracy_c) | The mean of accuracy on different categories, useful when the categories are imbalanced. |
 | Precision | ![](http://latex.codecogs.com/gif.latex?Precision=\frac{TP}{TP+FP}) | The ratio of correct predictions over all predictions. |
 | Recall | ![](http://latex.codecogs.com/gif.latex?Recall=\frac{TP}{TP+FN}) | The ratio of correct predictions over positive samples in the ground truth. |
-| F1 Score | ![](http://latex.codecogs.com/gif.latex?F_1=2\times \frac{Precision\cdot Recall}{Precision + Recall}) | The harmonic mean of precision and recall. |
-| IoU | ![](http://latex.codecogs.com/gif.latex?IoU_i=\frac{I_{i,i}}{\sum_{c=1}^C (I_{i,c}+I_{c,i}) - I_{i,i}}) | Intersection over Union (of class/instance $i$). The intersection and union are calculated between the prediction and the ground truth. |
-| mIoU | ![](http://latex.codecogs.com/gif.latex?mIoU = \frac{1}{C}\sum_{c=1}^{C}IoU_i) | The mean of IoU on all classes/instances. |
+| F1 Score | ![](http://latex.codecogs.com/gif.latex?F_1=2\times\frac{Precision\cdot{Recall}}{Precision+Recall}) | The harmonic mean of precision and recall. |
+| IoU | ![](http://latex.codecogs.com/gif.latex?IoU_i=\frac{I_{i,i}}{\sum_{c=1}^{C}(I_{i,c}+I_{c,i})-I_{i,i}}) | Intersection over Union (of class/instance $i$). The intersection and union are calculated between the prediction and the ground truth. |
+| mIoU | ![](http://latex.codecogs.com/gif.latex?mIoU=\frac{1}{C}\sum_{c=1}^{C}IoU_i) | The mean of IoU on all classes/instances. |
 | MOTA | ![](http://latex.codecogs.com/gif.latex?MOTA=1-\frac{FN+FP+IDS}{TP+FN}) | Multi-object tracking accuracy (MOTA) synthesizes 3 error sources: false positives, missed targets and identity switches, and the number of ground truth (as TP+FN) is used for normalization. |
-| MOTP | ![](http://latex.codecogs.com/gif.latex?MOTP=\frac{\sum_{i,t} e_{i,t}}{\sum_t d_t}) | Multi-object tracking precision (MOTP) indicates the precision of localization. ![](http://latex.codecogs.com/gif.latex?d_t) denotes the number of matches at time t, and ![](http://latex.codecogs.com/gif.latex?e_{i,t}) denotes the error of the i-th pair at time t. |
+| MOTP | ![](http://latex.codecogs.com/gif.latex?MOTP=\frac{\sum_{i,t}e_{i,t}}{\sum_t{d_t}}) | Multi-object tracking precision (MOTP) indicates the precision of localization. ![](http://latex.codecogs.com/gif.latex?d_t) denotes the number of matches at time t, and ![](http://latex.codecogs.com/gif.latex?e_{i,t}) denotes the error of the i-th pair at time t. |
 | EPE | ![](http://latex.codecogs.com/gif.latex?EPE=\|\|\Hat{sf}-sf\|\|_2) | End point error (EPE) is used in scene flow estimation, also referred as EPE2D/EPE3D for 2D/3D data respectively. ![](http://latex.codecogs.com/gif.latex?\Hat{sf}) denotes the predicted scene flow vector while ![](http://latex.codecogs.com/gif.latex?sf) denotes the ground truth. |
 
 ## Papers (up to ECCV 2020)
