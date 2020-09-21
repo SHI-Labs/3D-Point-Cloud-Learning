@@ -1,11 +1,11 @@
 # Deep Learning for 3D Point Cloud Understanding: A Survey
 
-Our survey paper[[ArXiv](http://arxiv.org/)]
+Our survey paper[[ArXiv](https://arxiv.org/abs/2009.08920)]
 ```BibTex
 @article{lu2020deep,
   title={Deep Learning for 3D Point Cloud Understanding: A Survey},
   author={Lu, Haoming and Shi, Humphrey},
-  journal={arXiv preprint arXiv:2009.xxxxx},
+  journal={arXiv preprint arXiv:2009.08920},
   year={2020}
 }
 ```
