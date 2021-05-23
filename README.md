@@ -76,11 +76,11 @@ Our survey paper[[ArXiv](https://arxiv.org/abs/2009.08920)]
 
 - Maturana, Daniel, and Sebastian Scherer. "Voxnet: A 3d convolutional neural network for real-time object recognition." *2015 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*. IEEE, 2015. [[paper](http://graphics.stanford.edu/courses/cs233-20-spring/ReferencedPapers/voxnet_07353481.pdf)]
 
-- Chang, Angel X., et al. "Shapenet: An information-rich 3d model repository." *arXiv preprint arXiv:1512.03012* (2015). [[paper](https://arxiv.org/pdf/1512.03012.pdf)]
+- Wu, Zhirong, et al. "3d shapenets: A deep representation for volumetric shapes." Proceedings of the IEEE conference on computer vision and pattern recognition. 2015. [[paper](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Wu_3D_ShapeNets_A_2015_CVPR_paper.pdf)]
 
 - Riegler, Gernot, Ali Osman Ulusoy, and Andreas Geiger. "Octnet: Learning deep 3d representations at high resolutions." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*. 2017. [[paper](https://openaccess.thecvf.com/content_cvpr_2017/papers/Riegler_OctNet_Learning_Deep_CVPR_2017_paper.pdf)]
 
-- Prokudin, Sergey, Christoph Lassner, and Javier Romero. "Efficient learning on point clouds with basis point sets." *Proceedings of the IEEE International Conference on Computer Vision Workshops*. 2019. [[paper](https://openaccess.thecvf.com/content_ICCVW_2019/papers/CEFRL/Prokudin_Efficient_Learning_on_Point_Clouds_with_Basis_Point_Sets_ICCVW_2019_paper.pdf)]
+- Prokudin, Sergey, Christoph Lassner, and Javier Romero. "Efficient learning on point clouds with basis point sets." *Proceedings of the IEEE International Conference on Computer Vision*. 2019. [[paper](https://openaccess.thecvf.com/content_ICCVW_2019/papers/CEFRL/Prokudin_Efficient_Learning_on_Point_Clouds_with_Basis_Point_Sets_ICCVW_2019_paper.pdf)]
 
 #### Point-based classification
 
